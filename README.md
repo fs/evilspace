@@ -9,15 +9,13 @@ Show HTTP 500 page with warning about evil spaces instead application page.
 ## Installation
 
 Add this line to your rails application's Gemfile:
+
 ``` rb
-    gem 'evilspace', git: 'git://github.com/fs/evilspace.git'
+    gem 'evilspace',
+      :git =>'git://github.com/fs/evilspace.git',
+      :group => :development
 ```
-And this to `config/environments/development.rb`:
-``` rb
-    config.middleware.use 'Evilspace::Middleware'
-    # or
-    config.middleware.use Evilspace::Middleware, ['app', 'lib']
-```
+
 ## Usage
 
 1. Add tabs or trailing spaces to any ruby file under app directory
