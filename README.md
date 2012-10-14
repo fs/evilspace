@@ -15,6 +15,8 @@ Add this line to your rails application's Gemfile:
 And this to `config/environments/development.rb`:
 ``` rb
     config.middleware.use 'Evilspace::Middleware'
+    # or
+    config.middleware.use Evilspace::Middleware, ['app', 'lib']
 ```
 ## Usage
 
