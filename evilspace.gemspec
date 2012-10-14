@@ -12,6 +12,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Show HTTP 500 page with warning about evil spaces in ruby sources.}
   gem.homepage      = ""
 
+  gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rack-test'
 
   gem.files         = `git ls-files`.split($/)
