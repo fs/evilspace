@@ -16,7 +16,7 @@ module Evilspace
       if html_request
         puts
         print "Evilspace::Middleware in %.1fms" % [100 * Benchmark.realtime {
-          bad_food = `find #{@folders.join(' ')} -iname '*.rb' -or -iname '*.erb' | xargs grep -n -P '\t|[\t ]+$'`
+          bad_food = `find #{@folders.join(' ')} -iname '*.rb' -or -iname '*.erb' -or -iname '*.slim' | xargs grep -n -P '\t|[\t ]+$'`
         }]
       end
 
