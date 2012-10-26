@@ -1,10 +1,9 @@
 # Evilspace [![Build Status](https://secure.travis-ci.org/fs/evilspace.png)](http://travis-ci.org/fs/evilspace)
 
 Enforce trailing spaces and tabs removing from your rails application codebase.
-
-![Tabs, spaces, both](http://i.imgur.com/pVzVU.png)
-
 Show HTTP 500 page with warning about evil spaces instead application page.
+
+![screenshot](http://i.imgur.com/4q03C.png)
 
 ## Installation
 
