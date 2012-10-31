@@ -3,9 +3,10 @@ require 'benchmark'
 
 module Evilspace
   class Middleware
-    def initialize(app, folders = %w{app lib spec features})
+    def initialize(app, folders = %w{app lib spec features test})
       @app = app
-      @folders = folders
+      @folders = folders.select {|f| File.exist?(f)}
+      @extensions = %w{rb erb slim haml}
     end
 
     def call(env)
@@ -16,7 +17,9 @@ module Evilspace
       if html_request
         puts
         print "Evilspace::Middleware in %.1fms" % [100 * Benchmark.realtime {
-          bad_food = `find #{@folders.join(' ')} -iname '*.rb' -or -iname '*.erb' -or -iname '*.slim' | xargs grep -n -P '\t|[\t ]+$'`
+          folders = @folders.join(' ')
+          files = @extensions.map {|e| "-iname '*.#{e}'"}.join(' -or ')
+          bad_food = `find #{folders} #{files} | xargs grep -n -P '\t|[\t ]+$'`
         }]
       end
 
