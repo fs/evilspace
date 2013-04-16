@@ -73,4 +73,12 @@ describe Evilspace::Middleware do
 
     it_should_respond_with_alert
   end
+
+  context 'not http request' do
+    before { create_file_with "some text" }
+    it 'should respond OK' do
+      get '/', {}, {}
+      last_response.status.must_equal 200
+    end
+  end
 end

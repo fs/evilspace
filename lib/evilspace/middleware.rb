@@ -12,7 +12,7 @@ module Evilspace
     def call(env)
       bad_food = ""
 
-      html_request = env['HTTP_ACCEPT'].include?('text/html')
+      html_request = env['HTTP_ACCEPT'].to_s.include?('text/html')
 
       if html_request
         puts
