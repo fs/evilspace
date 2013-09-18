@@ -19,7 +19,7 @@ module Evilspace
         print "Evilspace::Middleware in %.1fms" % [100 * Benchmark.realtime {
           folders = @folders.join(' ')
           files = @extensions.map {|e| "-iname '*.#{e}'"}.join(' -or ')
-          grep_command = "grep -n -E '\t|[[:space:]]+$'"
+          grep_command = "grep -n -E $'\t|[[:space:]]+$'"
           bad_food = `find #{folders} #{files} | xargs #{grep_command}`
         }]
       end
